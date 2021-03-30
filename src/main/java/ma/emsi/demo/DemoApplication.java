@@ -23,5 +23,10 @@ public class DemoApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         patientRepository.save(new Patient(null, "AB123456", "MERZAK", "Mohamed", "Casablanca", new Date(), true));
         patientRepository.save(new Patient(null, "AB123456", "AGOURRAM", "Yassine", "Casablanca", new Date(), true));
+
+        patientRepository.findAll().forEach(System.out::println);
+
+        patientRepository.findByLastnameContainsOrFirstnameContains("ZAK", "ine").forEach(System.out::println);
+
     }
 }

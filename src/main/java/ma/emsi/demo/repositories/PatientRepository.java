@@ -3,6 +3,8 @@ package ma.emsi.demo.repositories;
 import ma.emsi.demo.entities.Patient;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PatientRepository extends JpaRepository<Patient, Long> {
+import java.util.List;
 
+public interface PatientRepository extends JpaRepository<Patient, Long> {
+    public List<Patient> findByLastnameContainsOrFirstnameContains(String lastname, String firstname);
 }
